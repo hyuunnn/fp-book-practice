@@ -16,7 +16,7 @@
   ;; (my-map (fn [x] (+ x 1)) '(1 2 3)) => (2 3 4)
 
 (defn word-count [list]
-  ;; (word-count '("a" "b" "a" "c" "b")) => {"a" 2, "b" 2, "c" 1}
+  ;; (word-count '(a b a c b)) => {"a" 2, "b" 2, "c" 1}
   (reduce
     (fn [acc_map elem]
       (if (nil? (get acc_map elem))
@@ -24,5 +24,3 @@
         (update acc_map elem inc)))
     {} 
     list))
-
-
