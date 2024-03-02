@@ -8,6 +8,8 @@
     ((eq (car input-list) num) "yes")
     (t (is-exist (cdr input-list) num))))
 
+(defun duplicate-elem (input-list))
+
 (defun filter-odd-1 (input-list)
   ;; (filter-odd-1 '(1 2 3 4 5))
   ;; (1 3 5)
