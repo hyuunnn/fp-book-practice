@@ -18,3 +18,13 @@ nth :: [Int] -> Int -> Int
 nth (head:tail) n
   | n == 1    = head
   | otherwise = nth tail (n - 1)
+
+-- mymap (\x -> x + 1) [1, 2, 3] => [2, 3, 4]
+mymap :: (a -> b) -> [a] -> [b]
+mymap fp [] = []
+mymap fp [a] = [fp a]
+mymap fp (head:tail) = fp head : mymap fp tail
+
+-- TODO
+-- myfilter
+-- myfoldl
