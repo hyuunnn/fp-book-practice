@@ -25,6 +25,14 @@ mymap fp [] = []
 mymap fp [a] = [fp a]
 mymap fp (head:tail) = fp head : mymap fp tail
 
--- TODO
--- myfilter
--- myfoldl
+-- myfilter (\x -> even x) [1, 2, 3] => [2]
+myfilter :: (a -> Bool) -> [a] -> [a]
+myfilter fp [] = []
+myfilter fp (head:tail)
+  | fp head = head : myfilter fp tail
+  | otherwise = myfilter fp tail
+
+-- myfoldl (\x y -> x + y) 0 [1 ,2, 3] => 6
+myfoldl :: (b -> a -> b) -> b -> [a] -> b
+myfoldl _ acc [] = acc
+myfoldl fp acc (head:tail) = myfoldl fp (fp acc head) tail
