@@ -1,3 +1,4 @@
+// filterOdd_1(List(1,2,3,4,5)) -> List(1,3,5)
 def filterOdd_1(list: List[Int]): List[Int] = {
   if (list == Nil) Nil
   else {
@@ -6,6 +7,7 @@ def filterOdd_1(list: List[Int]): List[Int] = {
   }
 }
 
+// filterOdd_2(List(1,2,3,4,5)) -> List(1,3,5)
 def filterOdd_2(list: List[Int]): List[Int] = {
   list match {
     case Nil => Nil
@@ -14,5 +16,8 @@ def filterOdd_2(list: List[Int]): List[Int] = {
   }
 }
 
-// def map_1
-// def map_2
+// map(List(1,2,3,4,5))((x: Int) => x * 2) -> List(2,4,6,8,10)
+def map[A, B](list: List[A])(f: A => B): List[B] = list match {
+  case Nil => Nil
+  case head :: tail => f(head) :: map(tail)(f)
+}
