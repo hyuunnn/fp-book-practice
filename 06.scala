@@ -17,7 +17,9 @@ def filterOdd_2(list: List[Int]): List[Int] = {
 }
 
 // map(List(1,2,3,4,5))((x: Int) => x * 2) -> List(2,4,6,8,10)
-def map[A, B](list: List[A])(f: A => B): List[B] = list match {
-  case Nil => Nil
-  case head :: tail => f(head) :: map(tail)(f)
+def map[A, B](list: List[A])(f: A => B): List[B] = {
+  list match {
+    case Nil => Nil
+    case head :: tail => f(head) :: map(tail)(f)
+  }
 }
